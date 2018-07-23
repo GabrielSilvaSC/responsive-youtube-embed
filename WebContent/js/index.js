@@ -1,12 +1,12 @@
 
 // Called automatically when JavaScript client library is loaded.
-function onClientLoad() {
-    gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
-}
+//function onClientLoad() {
+//    gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
+//}
 
-// Called automatically when YouTube API interface is loaded (see line 9).
+//// Called automatically when YouTube API interface is loaded (see line 9).
 function onYouTubeApiLoad() {
-    gapi.client.setApiKey('AIzaSyD4nxoPW4Y0TFzp0Yd4D_hYnzXEZ_vHRaA');
+    gapi.client.setApiKey(document.getElementById('key').value);
 }
  
 // Called when the search button "Pesquisar" is clicked in the html code
@@ -28,8 +28,6 @@ function populatePageWithDataVideos(response){
 		
 		var dataFormat = moment(response.items[i].snippet.publishedAt).format('DD/MM/YYYY');
 		
-		console.log(response.items[i].snippet.title +' = '+ response.items[i].id.videoId);
-		
 		$('#videosYouTube').append( '<div class="social-feed-box">' +
 									'	<div class="social-avatar">' +
 									'		<div class="media-body">' +
@@ -40,12 +38,11 @@ function populatePageWithDataVideos(response){
 									'		<p>'+ response.items[i].snippet.description +'</p>' +
 									'		<div class="embed-container">' +
 									'			<figure>' +
-									'				<iframe src="http://www.youtube.com/embed/'+ response.items[i].id.videoId +'" frameborder="0" allowfullscreen></iframe>' +
+									'				<iframe src="http://www.youtube.com/embed/'+ response.items[i].id.videoId +'?rel=0" frameborder="0" allowfullscreen></iframe>' +
 									'			<figure>' +
 									'		</div>' +
 									'	</div>' +
 									'</div>'); 
 	}
-	
 	$('#videosYouTube').paginate({ limit:5 });
 }
