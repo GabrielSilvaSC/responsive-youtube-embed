@@ -4,7 +4,7 @@ function search() {
             "https://www.googleapis.com/youtube/v3/search",{
             part : 'snippet', 
             maxResults : 20,
-            type : video,
+            type : 'video',
             q : document.getElementById('query').value,
             key: 'AIzaSyD4nxoPW4Y0TFzp0Yd4D_hYnzXEZ_vHRaA'},
             function(data) {
