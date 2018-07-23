@@ -6,14 +6,14 @@ function search() {
             'type': 'video',
             'maxResults': 20,
             'key': 'AIzaSyD4nxoPW4Y0TFzp0Yd4D_hYnzXEZ_vHRaA',
-            'q':query
+            'q': document.getElementById('query').value
     };
     $.ajax({
 		type : 'GET',
 		url : 'https://www.googleapis.com/youtube/v3/search',
 		data : params,
-		dataType : "json",
-		contentType : "application/x-www-form-urlencoded;charset=ISO-8859-15",
+		dataType : 'json',
+		contentType : 'application/x-www-form-urlencoded;charset=ISO-8859-15',
 		beforeSend : function(xhr) {
 			xhr.setRequestHeader('Accept', "text/html; charset=ISO-8859-1");
 		},
