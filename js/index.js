@@ -30,7 +30,7 @@ function populatePageWithDataVideos(response){
 									'		<p>'+ response.items[i].snippet.description +'</p>' +
 									'		<div class="embed-container">' +
 									'			<figure>' +
-									'				<iframe src="http://www.youtube.com/embed/'+ response.items[i].id.videoId +'?rel=0" frameborder="0" allowfullscreen></iframe>' +
+									'				<iframe src="https://www.youtube.com/embed/'+ response.items[i].id.videoId +'?rel=0" frameborder="0" allowfullscreen></iframe>' +
 									'			<figure>' +
 									'		</div>' +
 									'	</div>' +
