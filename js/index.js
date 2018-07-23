@@ -1,4 +1,3 @@
-
 // Called when the search button "Pesquisar" is clicked in the html code
 function search() {
     var params = {
@@ -15,9 +14,10 @@ function search() {
 		dataType : 'json',
 		contentType : 'application/x-www-form-urlencoded;charset=ISO-8859-15',
 		beforeSend : function(xhr) {
-			xhr.setRequestHeader('Accept', "text/html; charset=ISO-8859-1");
+			xhr.setRequestHeader('Accept', 'text/html; charset=ISO-8859-1');
 		},
 		function(data) {
+			console.log(data);
             populatePageWithDataVideos(data)
         }
 	});
