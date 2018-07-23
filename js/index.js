@@ -1,23 +1,17 @@
-// Called automatically when JavaScript client library is loaded.
-function onClientLoad() {
-    gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
-}
 
-//// Called automatically when YouTube API interface is loaded (see line 9).
-function onYouTubeApiLoad() {
-    gapi.client.setApiKey('AIzaSyD4nxoPW4Y0TFzp0Yd4D_hYnzXEZ_vHRaA');
-}
- 
 // Called when the search button "Pesquisar" is clicked in the html code
 function search() {
-    var query = document.getElementById('query').value;
-    var request = gapi.client.youtube.search.list({
-        part: 'snippet',
-        type: 'video',
-        maxResults: '20',
-        q:query
-    });
-    request.execute(populatePageWithDataVideos);
+    $.get(
+            "https://www.googleapis.com/youtube/v3/search/list",{
+            part : 'snippet', 
+            type: 'video',
+            maxResults : 20,
+            key: 'AIzaSyD4nxoPW4Y0TFzp0Yd4D_hYnzXEZ_vHRaA',
+            q:query },
+            function(data) {
+                populatePageWithDataVideos(data)
+            }
+     );
 }
 
 // Create div with videos
