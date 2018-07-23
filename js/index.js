@@ -1,8 +1,7 @@
-
 // Called automatically when JavaScript client library is loaded.
-//function onClientLoad() {
-//    gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
-//}
+function onClientLoad() {
+    gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
+}
 
 //// Called automatically when YouTube API interface is loaded (see line 9).
 function onYouTubeApiLoad() {
