@@ -1,26 +1,16 @@
 // Called when the search button "Pesquisar" is clicked in the html code
 function search() {
-    var params = {
-    		'part' : 'snippet', 
-            'type': 'video',
-            'maxResults': 20,
-            'key': 'AIzaSyD4nxoPW4Y0TFzp0Yd4D_hYnzXEZ_vHRaA',
-            'q': document.getElementById('query').value
-    };
-    $.ajax({
-		type : 'GET',
-		url : 'https://www.googleapis.com/youtube/v3/search',
-		data : params,
-		dataType : 'json',
-		contentType : 'application/x-www-form-urlencoded;charset=ISO-8859-15',
-		beforeSend : function(xhr) {
-			xhr.setRequestHeader('Accept', 'text/html; charset=ISO-8859-1');
-		},
-		function(data) {
-			console.log(data);
-            populatePageWithDataVideos(data)
-        }
-	});
+    $.get(
+            "https://www.googleapis.com/youtube/v3/search",{
+            part : 'snippet', 
+            maxResults : 20,
+            type : video,
+            q : document.getElementById('query').value,
+            key: 'AIzaSyD4nxoPW4Y0TFzp0Yd4D_hYnzXEZ_vHRaA'},
+            function(data) {
+            	populatePageWithDataVideos(data);
+            }
+        );
 }
 
 // Create div with videos
